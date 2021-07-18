@@ -1,0 +1,37 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.ServiceItem>
+@section metatags
+{
+    <title>Купить гроб в Глубоком</title>
+    <meta name="description" content="Продажа гробов по доступным ценам в магазине «Ритуал» г.Глубокое, ул. М.Горького 32. Доставка в любой район. Работаем круглосуточно." />
+   
+}
+
+<div>
+    <article id="main" class="container special">
+        <p>
+            В магазине «Ритуал» на М.Горькго д.32 широкий ассортимент гробов лакированных,
+            обшитых тканью и комбинированных.
+        </p>
+    </article>
+    @if (Model.Any())
+    {
+        <section class="carousel">
+            <div class="reel">
+
+                @foreach (ServiceItem entity in Model)
+                {
+                    <article>
+                        <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id"><img src="~/images/@entity.TitleImagePath" alt="" class="image1 featuredNew" /> </a>
+                        <header>
+                            <h3>@entity.Subtitle</h3>
+                        </header>
+
+                    </article>
+
+                }
+            </div>
+        </section>
+    }
+
+</div>

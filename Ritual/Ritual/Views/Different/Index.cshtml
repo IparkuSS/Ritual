@@ -1,0 +1,37 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Different>
+@section metatags
+{
+    <title>Купить ритуальные принадлежности в Глубоком</title>
+    <meta name="description" content="Продажа ритуальных принадлежностей по доступным ценам в магазине «Ритуал» г.Глубокое, ул. М.Горького 32. Доставка в любой район. Работаем круглосуточно." />
+    @*<meta name="keywords" content="asdasddas" />*@
+}
+
+<div>
+    <article id="main" class="container special">
+
+
+        <p>
+            МАГАЗИН «РИТУАЛ» НА М.ГОРЬКОГО 32 ПРЕДЛАГАЕТ ВАШЕМУ ВНИМАНИЮ БОЛЬШОЙ ВЫБОР РУШНИКОВ,<br>
+            ПОКРЫВАЛ ИСКУСТВЕННЫХ ЦВЕТОВ, РИТУАЛЬНОЙ ОТРЕБУТИКИ И Т.Д
+        </p>
+    </article>
+    @if (Model.Any())
+    {
+        <section class="carousel">
+            <div class="reel">
+                @foreach (Different entity in Model)
+                {
+                    <article>
+                        <a asp-area="" asp-controller="Different" asp-action="Index" asp-route-id="@entity.Id"><img src="~/images/@entity.TitleImagePath" alt="" class="imageDif featuredNew"/></a>
+                        <header>
+                            <h3>@entity.Subtitle</h3>
+                        </header>
+                    </article>
+                }
+
+            </div>
+        </section>
+    }
+
+</div>

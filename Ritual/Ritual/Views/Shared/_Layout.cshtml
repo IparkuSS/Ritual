@@ -1,0 +1,93 @@
+﻿@using Ritual.Services
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    @RenderSection("metatags", false)
+    <title>Риуальные услуги</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <noscript><link rel="stylesheet" href="~/css/noscript.css" /></noscript>
+</head>
+<body class="homepage is-preload">
+
+<div id="page-wrapper">
+
+    @await Html.PartialAsync("HeaderPartion")
+
+    <!-- Main -->
+    <div class="wrapper style2">
+        
+        @RenderBody()
+    </div>
+    <div class="footer-bottom-area bg-dark-light section-padding-sm">
+        <div class="container">
+            <div class="row widgets footer-widgets">
+                <section class="col-4 col-12-mobile">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-widget widget-quick-links">
+
+                            <h5 class="widget-title">Наши товары</h5>
+                            <ul>
+                                <li><a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Гробы</a></li>
+                                <li><a asp-area="" asp-controller="Whreat" asp-action="Index" asp-route-id="">Венки</a></li>
+                                <li><a asp-area="" asp-controller="Cross" asp-action="Index" asp-route-id="">Кресты</a></li>
+                                <li><a asp-area="" asp-controller="Monument" asp-action="Index" asp-route-id="">Памятники</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-4 col-12-mobile">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-widget widget-quick-links">
+                            <h5 class="widget-title">Наши услуги</h5>
+                            <ul>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Car">Катафалк</a> </li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="Grave">Копка могилы</a> </li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="RitualTable">Ритуальный стол</a> </li>
+                                <li><a asp-area="" asp-controller="InitMon" asp-action="Index" asp-route-id="">Установка Памятников</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-4 col-12-mobile">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-widget widget-quick-links">
+                            <h5 class="widget-title">Наши контакты</h5>
+                            <ul>
+                                <li>
+                                    <a>г.Глубокое, ул. М.Горького, дом 32</a>
+                                </li>
+                                <li>
+                                    <a>+375 (29) 890-92-99</a>
+                                </li>
+                                <li>
+                                    <a>+375 (29) 899-17-67</a>
+                                </li>
+                                <li>
+                                    <a>8 (02156) 2-41-71</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div class="copyright">
+                    <ul class="menu">
+                        <li>&copy; 2021 Ритуальные услуги в Глубоком </li>
+                        <li>ИП Парпуц А.Ф.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+
+<script src="~/js/script.min.js" asp-append-version="true"></script>
+
+</body>
+</html>

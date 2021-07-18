@@ -1,0 +1,46 @@
+﻿@using Ritual.Services
+<div id="header">
+    <div class="inner">
+        <h1><a href="/">«Ритуал» на М.Горького 32</a></h1>
+        <hr />
+        <h2>
+            +375 (29) 890-92-99
+        </h2>
+        <h2>
+            +375 (29) 899-17-67
+        </h2>
+     </div>
+    <nav id="nav">
+
+        <ul>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li>
+                <a href="#">Товары</a>
+                <ul>
+                    <li><a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Гробы</a></li>
+                    <li><a asp-area="" asp-controller="Whreat" asp-action="Index" asp-route-id="">Венки и Корзины</a></li>
+                    <li><a asp-area="" asp-controller="Cross" asp-action="Index" asp-route-id="">Кресты</a></li>
+                    <li><a asp-area="" asp-controller="Different" asp-action="Index" asp-route-id="">Разное</a></li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="#">Услуги</a>
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Car">Катафалк</a> </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Grave">Копка могилы</a> </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="RitualTable">Ритуальный стол</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Памятники</a>
+                <ul>
+                    <li><a asp-area="" asp-controller="Monument" asp-action="Index" asp-route-id="">Памятики</a></li>
+                    <li><a asp-area="" asp-controller="InitMon" asp-action="Index" asp-route-id="">Установка Памятников</a></li>
+                </ul>
+
+            </li>
+            <li> <a asp-area="" asp-controller="Home" asp-action="Contacts">Наши контакты</a></li>
+        </ul>
+    </nav>
+</div>

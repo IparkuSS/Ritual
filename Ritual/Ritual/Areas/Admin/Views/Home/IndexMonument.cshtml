@@ -1,0 +1,44 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Monument>
+@{
+    string strTitle = "Панель администратора";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <article id="main" class="container special">
+
+    <h2>@strTitle</h2>
+    <div>
+        <h3>Памятники</h3>
+        <a asp-area="Admin" asp-controller="Monument" asp-action="Edit" asp-route-id="">Добавить памятник</a>
+
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (Monument entity in Model)
+                {
+                    <div>
+                        <a asp-area="Admin" asp-controller="Monument" asp-action="Edit" asp-route-id="@entity.Id">редактировать</a>
+                        |
+                        <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="Monument" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@entity.Id">
+                            <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">удалить</a>
+                        </form>
+                        |
+                        <a asp-area="" asp-controller="Monument" asp-action="Index" asp-route-id="@entity.Id">
+                            @($"{entity.Title}")
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+        <hr>
+
+    </div>
+
+    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+        <input type="submit" value="Выйти"/>
+    </form>
+    </article>
+</div>

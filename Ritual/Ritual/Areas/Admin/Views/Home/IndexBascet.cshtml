@@ -1,0 +1,48 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Messege>
+@{
+    string strTitle = "Панель администратора";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+
+    @if (Model != null)
+    {
+        <article id="main" class="container special">
+
+            <form style="display: inline-block;" asp-area="Admin" asp-controller="Bascet" asp-action="DeleteAllLines" method="post">
+                <input value="Удалить все комментарии" type="submit" name="id">
+            </form>
+
+            <br>
+            <table class="container">
+                <tr>
+                    <th>Имя отпровителя </th>
+                    <th>Время отпровления</th>
+                    <th>Телефон отпровителя</th>
+                    <th>Сообщение отпровителя</th>
+                </tr>
+                @foreach (Messege entity in Model)
+                {
+                    <tr>
+                        <td>@entity.Name</td>
+                        <td>@entity.TimeMess</td>
+
+                        <td>@entity.NumberPhone</td>
+
+
+                        <td colspan="4">@entity.FullMessege</td>
+                        <td>
+                            <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="Bascet" asp-action="Delete" method="post">
+                                <input type="hidden" name="id" value="@entity.Id">
+                                <p><a href="#" onclick="document.getElementById('form-@entity.Id').submit();">удалить</a></p>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </article>
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Wreath>
+@section metatags
+{
+    <title>Купить корзину, венок в Глубоком</title>
+    <meta name="description" content="Продажа венков по доступным ценам в магазине «Ритуал» г.Глубокое, ул. М.Горького 32. Доставка в любой район. Работаем круглосуточно." />
+ 
+}
+
+<div>
+    <article id="main" class="container special">
+        <p>РИТУАЛЬНЫЕ ВЕНКИ И КОРЗИНЫ ПОМОГУТ ВЫРАЗИТЬ ЭМОЦИИ УТРАТЫ В ТРУДНУЮ МИНУТУ</p>
+    </article>
+    @if (Model.Any())
+    {
+        <section class="carousel">
+            <div id="whreat" class="reel">
+                @foreach (Wreath entity in Model)
+                {
+                    <article>
+                        <a asp-area="" asp-controller="Whreat" asp-action="Index" asp-route-id="@entity.Id">
+                            <img src="~/images/@entity.TitleImagePath" alt="" class="imageWhreat featuredNew"/>
+                        </a>
+                        <header>
+                            <h3>@entity.Subtitle</h3>
+                        </header>
+                    </article>
+                }
+
+            </div>
+        </section>
+    }
+
+</div>

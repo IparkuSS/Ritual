@@ -1,0 +1,37 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Cross>
+@section metatags
+{
+    <title>Купить крест в Глубоком</title>
+    <meta name="description" content="Продажа крестов по доступным ценам в магазине «Ритуал» г.Глубокое, ул. М.Горького 32. Доставка в любой район. Работаем круглосуточно." />
+    
+}
+<div>
+
+    <article id="main" class="container special">
+
+        <p>
+            Кресты на могилу  относятся к категории ключевой атрибутики.<br>
+            Это не просто привычный элемент на могиле, это – уникальный символ вечной жизни.<br>
+            Традиционно крест устанавливают сразу после захоронения.
+        </p>
+    </article>
+    @if (Model.Any())
+    {
+        <section class="carousel">
+            <div class="reel">
+                @foreach (Cross entity in Model)
+                {
+                    <article>
+                        <a asp-area="" asp-controller="Cross" asp-action="Index" asp-route-id="@entity.Id"><img src="~/images/@entity.TitleImagePath" alt="" class="image featuredNew"/></a>
+                        <header>
+                            <h3>@entity.Subtitle</h3>
+                        </header>
+                    </article>
+                }
+
+            </div>
+        </section>
+    }
+
+</div>

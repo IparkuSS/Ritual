@@ -1,0 +1,46 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.Monument>
+@section metatags
+{
+    <title>Заказать памятник в Глубоком</title>
+    <meta name="description" content="Мы предлагаем Вам памятники ЧПТУП «Витгран» которая уже более 25-ти лет занимается изготовлением изделий из природного камня. " />
+   
+}
+
+<div>
+    <article id="main" class="container special">
+        <p>
+            Мы предлагаем Вам памятники ЧПТУП «Витгран» которая уже более 25-ти лет занимается изготовлением изделий из природного камня. Мы уверены в качестве продукции этой компании и предоставляем гарантию 5 лет на все работы.<br>
+
+            ЧПТУП «Витгран» изготавливает:
+
+            памятники и надгробные плиты (как типовые так и нестандартные)
+
+            возможна разработка памятников по индивидуальным проектам.
+
+            Предлагаем Вам увековечить память Ваших близких, изготовив памятник, надгробие из предлагаемого нами уникального по своим свойствам природного камня.
+        </p>
+    </article>
+
+    @if (Model.Any())
+    {
+
+        <section class="carousel">
+            <div class="reel">
+                @foreach (Monument entity in Model)
+                {
+                    <article>
+                        <a asp-area="" asp-controller="Monument" asp-action="Index" asp-route-id="@entity.Id">
+                            <img src="~/images/@entity.TitleImagePath" alt="" class="image1 featuredNew" />
+                        </a>
+                        <header>
+                            <h3>@entity.Subtitle</h3>
+                        </header>
+                    </article>
+                }
+
+            </div>
+        </section>
+    }
+
+</div>

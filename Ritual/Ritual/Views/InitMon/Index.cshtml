@@ -1,0 +1,68 @@
+﻿@using Ritual.Domain.Entities
+@model IQueryable<Ritual.Domain.Entities.InitMon>
+@section metatags
+{
+    <title>Установка памятников в Глубоком</title>
+    <meta name="description" content="Установка памятников; комплексное благоустройство мест захоронения; установка оград, столиков, скамеек; стяжка; укладка керамогранитной и тротуарной плитки; консультация." />
+    
+}
+
+<div>
+    <article id="main" class="container special">
+        <p>
+            Место погребения после похорон традиционно отмечают крестом или памятным знаком с мемориальной табличкой, где указаны фамилия, имя, отчество умершего и даты его жизни. Впоследствии эти временные надмогильные сооружения, как правило, заменяют долговечным памятником. Его установка проводится с соблюдением определённых правил и сроков.
+
+            Высококвалифицированные специалисты помогут вам с этим.
+        </p>
+        <br />
+        <ul>
+            <li>
+                <p>Установка памятников</p>
+            </li>
+            <li>
+                <p> Комплексное благоустройство мест захоронения</p>
+            </li>
+            <li>
+                <p> Установка оград, столиков, скамеек</p>
+            </li>
+            <li>
+                <p> Стяжка</p>
+            </li>
+            <li>
+                <p> Укладка керамогранитной и тротуарной плитки</p>
+            </li>
+            <li>
+                <p> Выезд на городские и сельские кладбища для консультации</p>
+            </li>
+            <li>
+                <p> 8 (029) 296-99-70</p>
+                <p> 8 (02156) 5-05-80</p>
+
+            </li>
+
+        </ul>
+
+
+    </article>
+    @if (Model.Any())
+    {
+
+        <section class="carousel">
+            <div class="reel">
+                @foreach (InitMon entity in Model)
+                {
+                    <article>
+                    <a asp-area="" asp-controller="InitMon" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.TitleImagePath" alt="" class="imageInit featuredNew" />
+                    </a>
+                    <header>
+                        <h3>@entity.Subtitle</h3>
+                    </header>
+                    </article>
+                }
+            </div>
+        </section>
+
+    }
+
+</div>
